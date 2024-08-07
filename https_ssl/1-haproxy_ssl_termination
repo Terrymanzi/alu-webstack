@@ -33,18 +33,18 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend bela-frontend-http
+frontend terry-frontend-http
         bind *:80
         mode http
 	http-request set-header X-Forwarded-Proto http
         default_backend bela-backend
 
-frontend bela-frontend-https
-	bind *:443 ssl crt /etc/haproxy/certs/www.gunnerbel.tech.pem
+frontend terry-frontend-https
+	bind *:443 ssl crt /etc/haproxy/certs/www.terrytechlab.tech.pem
 	http-request set-header X-Forwarded-Proto https
 	default_backend bela-backend
 
-backend bela-backend
+backend terry-backend
         balance roundrobin
-        server 6180-web-01 98.80.11.37:80 check
-        server 6180-web-02 52.91.49.196:80 check
+        server 6135-web-01 34.229.158.243 check
+        server 6135-web-02 34.227.224.206 check
